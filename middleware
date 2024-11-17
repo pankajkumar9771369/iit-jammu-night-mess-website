@@ -1,0 +1,18 @@
+const User=require('./models/user.js');
+const Order=require("./models/order.js")
+module.exports.LogedIn=(req,res,next)=>{
+    if(!req.isAuthenticated()){
+        req.session.redirectURL=req.originalUrl;
+        req.flash('error','Login Your Account');
+        return res.redirect('/login');
+    }
+    else{
+        next();
+    }
+};
+module.exports.SaveRedirectUrl=(req,res,next)=>{
+    if(req.session.redirectURL){
+        res.locals.redirectUrl=req.session.redirectURL;
+    }
+    next();
+}

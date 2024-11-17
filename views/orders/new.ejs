@@ -1,0 +1,28 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+<body>
+    <h1 class="heading">Create a new Order</h1>
+    <form method="post" action="/orders/new" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
+        <div class="col-8 offset-2">
+          
+            <div class="mb-3">
+                <label for="title" class="form-label">Order Title</label>
+                <input type="text" name="order[title]" placeholder="Enter Order Title" class="form-control" required>
+                <div class="valid-feedback">Title looks good!</div>
+                <div class="invalid-feedback">Please enter the title</div>  
+            </div>
+       <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" name="order[quantity]" placeholder="Enter Quantity" class="form-control" required min="1">
+                <div class="valid-feedback">Done</div>
+                <div class="invalid-feedback">Please enter a valid quantity</div>
+            </div>
+                    <div class="mb-3">
+                <label for="totalPrice" class="form-label">Total Price</label>
+                <input type="number" name="order[totalPrice]" placeholder="Enter Total Price" class="form-control" required>
+                <div class="valid-feedback">Done</div>  
+                <div class="invalid-feedback">Please enter the Total Price</div>  
+            </div>
+  <button type="submit" class="btn btn-dark">Place Order</button>
+        </div>
+    </form>
+</body>
